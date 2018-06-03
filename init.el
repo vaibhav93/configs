@@ -131,7 +131,7 @@
 (global-set-key "\M-," 'hippie-expand)
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
+(add-to-list 'auto-mode-alist '("\\.ts$" . js2-mode))
 (require 'flycheck)
 
 ;; turn on flychecking globally
@@ -181,3 +181,9 @@
          (save-buffer)
          (server-edit))))
    (add-hook 'mail-mode-hook 'my-mail-mode-hook)
+
+;;Hide dired details
+(defun xah-dired-mode-setup ()
+  "to be run as hook for `dired-mode'."
+  (dired-hide-details-mode 1))
+(add-hook 'dired-mode-hook 'xah-dired-mode-setup)
